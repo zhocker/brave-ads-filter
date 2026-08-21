@@ -1,0 +1,12 @@
+! ===== Go-Manga =====
+go-manga.com##a:has(img[src$=".gif"])
+go-manga.com##img[src$=".gif"]
+go-manga.com##img[src*="close.png"]:upward(1)
+go-manga.com##a[href*="openExternalBrowser=1"]:has(img)
+go-manga.com##a[href*="ibit.ly"]
+go-manga.com##a[href*="//t.ly/"]
+go-manga.com##a[href*="tinyurl.com"]
+go-manga.com##a[href*="rebrand.ly"]
+go-manga.com##a[href*="//bit.ly/"]
+! ตัดที่ระดับเน็ตเวิร์ก (ทำงานเฉพาะโหมด Aggressive)
+||go-manga.com/wp-content/uploads/*.gif$image
