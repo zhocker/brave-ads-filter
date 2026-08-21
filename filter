@@ -1,12 +1,32 @@
-! ===== Go-Manga =====
+! ===== Go-Manga v2 =====
+! 1. หลักเลย: ลิงก์ออกนอกเว็บที่ห่อรูปไว้
+go-manga.com##a[href]:has(img):not([href^="/"]):not([href^="#"]):not([href*="go-manga.com"])
+
+! 2. จับจากขนาดแบนเนอร์ในชื่อไฟล์ (เผื่อรูปไม่ได้ห่อด้วย <a>)
+go-manga.com##img[src*="728x200"]
+go-manga.com##img[src*="728x180"]
+go-manga.com##img[src*="728x400"]
+go-manga.com##img[src*="728x90"]
+go-manga.com##img[src*="728-400"]
+go-manga.com##img[src*="730x"]
+go-manga.com##img[src*="140x250"]
+
+! 3. .gif ใน uploads (ภาพมังงะเป็น .jpg เสมอ)
 go-manga.com##a:has(img[src$=".gif"])
 go-manga.com##img[src$=".gif"]
+
+! 4. กล่อง sticky ที่มีปุ่มปิด
 go-manga.com##img[src*="close.png"]:upward(1)
-go-manga.com##a[href*="openExternalBrowser=1"]:has(img)
+
+! 5. ตัวย่อลิงก์ที่ใช้ประจำ (เผื่อกฎ 1 พลาด)
+go-manga.com##a[href*="cutt.ly"]
 go-manga.com##a[href*="ibit.ly"]
+go-manga.com##a[href*="lin.ee"]
 go-manga.com##a[href*="//t.ly/"]
 go-manga.com##a[href*="tinyurl.com"]
 go-manga.com##a[href*="rebrand.ly"]
 go-manga.com##a[href*="//bit.ly/"]
-! ตัดที่ระดับเน็ตเวิร์ก (ทำงานเฉพาะโหมด Aggressive)
+go-manga.com##a[href*="openExternalBrowser="]
+
+! 6. ตัดที่เน็ตเวิร์ก (ต้องเปิด Aggressive)
 ||go-manga.com/wp-content/uploads/*.gif$image
