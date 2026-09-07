@@ -1,209 +1,284 @@
-! ===== Go-Manga v3 =====
+! Title: Thai Content Filters
+! Description: Filters for Thai movie, manga, anime, and series websites.
+! Homepage: https://github.com/peerasak/ublock-filter-th
+! Version: 6
+! Last modified: 2026-09-07
+! Expires: 1 day
 
-! --- โฆษณา ---
-go-manga.com##a[href]:has(img):not([href^="/"]):not([href^="#"]):not([href*="go-manga.com"]):not([href*="facebook.com"]):not([href*="discord.com"])
 
-go-manga.com##img[src*="728x200"]
-go-manga.com##img[src*="728x180"]
-go-manga.com##img[src*="728x400"]
-go-manga.com##img[src*="728x90"]
-go-manga.com##img[src*="728-400"]
-go-manga.com##img[src*="730x"]
-go-manga.com##img[src*="140x250"]
+! ##########################################################
+! ANIME
+! ##########################################################
 
-go-manga.com##a:has(img[src$=".gif"])
-go-manga.com##img[src$=".gif"]
+! --- 037-anime ---
+037-anime.com##.mix-bnn-widget.mb-4.widget
 
-go-manga.com##img[src*="close.png"]:upward(1)
+! --- ธีมร่วม yuzu / waku / ruka (Ad Inserter: div.code-block-N) ---
+! กฎเดิม 40+ บรรทัดเป็น selector ยาวเจาะตำแหน่ง เปราะมาก
+! รวมเหลือ 4 บรรทัดด้วย attribute selector
+anime-yuzu.com,animewaku.com,anime-waku.com,animeruka.com,anime-ruka.com##div[class*="code-block"]
+anime-yuzu.com,animewaku.com,anime-waku.com,animeruka.com,anime-ruka.com##.animekimi-banner
+anime-yuzu.com,animewaku.com,anime-waku.com,animeruka.com,anime-ruka.com##[class*="ads"]
+anime-yuzu.com,animewaku.com,anime-waku.com,animeruka.com,anime-ruka.com##[id*="ads"]
 
-go-manga.com##a[href*="cutt.ly"]
-go-manga.com##a[href*="ibit.ly"]
-go-manga.com##a[href*="lin.ee"]
-go-manga.com##a[href*="//t.ly/"]
-go-manga.com##a[href*="tinyurl.com"]
-go-manga.com##a[href*="rebrand.ly"]
-go-manga.com##a[href*="//bit.ly/"]
-go-manga.com##a[href*="openExternalBrowser="]
+! --- เฉพาะ ruka: กล่องลอยข้าง/ล่าง ---
+animeruka.com,anime-ruka.com###box-footer-fix
+animeruka.com,anime-ruka.com###box-side-r
+animeruka.com,anime-ruka.com###box-side-l
 
-! --- ส่วนเกินบนหน้าอ่าน ---
+
+! ##########################################################
+! MANGA
+! ##########################################################
+
+! ==========================================================
+! MANGA — network
+! ==========================================================
+
+||image.cdend.com^
+||theclarendonarms.com^
+/*.gif$image,domain=manga1688.com|up-manga.com|moodtoon.net|moon-toon.com|popsmanga.com
+/wp-content/uploads/*.gif$image,domain=go-manga.com|dark-manga.com|tanuki-manga.net|tanuki-manga.com
+
+
+! ==========================================================
+! MANGA — ธีม Mangareader (TS theme)
+! go-manga / mangastep / dark-manga / tanuki-manga
+! ==========================================================
+
+! --- ลิงก์ภายนอกที่ห่อรูป (โฆษณาแบนเนอร์) ---
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href]:has(img):not([href^="/"]):not([href^="#"]):not([href*="go-manga.com"]):not([href*="mangastep.com"]):not([href*="dark-manga.com"]):not([href*="tanuki-manga"]):not([href*="facebook.com"]):not([href*="discord.com"]):not([href*="x.com"])
+
+! --- รูปแบนเนอร์ตามขนาดมาตรฐาน ---
+! 728x  ครอบคลุม 728x90 / 728x180 / 728x200 / 728x400
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##img[src*="728x"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##img[src*="728-400"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##img[src*="730x"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##img[src*="140x250"]
+
+! --- ลิงก์ย่อ / redirect ---
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="cutt.ly"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="ibit.ly"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="rebrand.ly"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="tinyurl.com"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="lin.ee"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="//t.ly/"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="//bit.ly/"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="openExternalBrowser="]
+
+! --- breadcrumb ---
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##[itemtype*="BreadcrumbList"]:upward(1)
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##div[class*="breadcrumb"]
+
+! --- GIF โฆษณา + ป็อปอัพ ---
+go-manga.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a:has(img[src$=".gif"])
+go-manga.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##img[src$=".gif"]
+go-manga.com,dark-manga.com##img[src*="close.png"]:upward(1)
+
+! --- ย่อหน้า SEO ของธีม ---
+mangastep.com,tanuki-manga.net,tanuki-manga.com##p:has-text(Dont forget to read)
+
 go-manga.com##h1:has-text(อ่านมังงะอ่านการ์ตูนออนไลน์)
-go-manga.com##[itemtype*="BreadcrumbList"]:upward(1)
-go-manga.com##div[class*="breadcrumb"]
-go-manga.com##.ts-breadcrumb
 go-manga.com##p:has-text(อัพเดทใหม่ล่าสุดที่)
 
-! --- network (ต้องเปิด Aggressive) ---
-||go-manga.com/wp-content/uploads/*.gif$image
-
-
-! ===== Mangastep =====
-
-! --- โฆษณา (network) ---
-||image.cdend.com^
-mangastep.com##a[href*="ibit.ly"]
-
-! --- โฆษณา (first-party ที่เหลือ) ---
-mangastep.com##a:has(img[src*="728x200"])
-mangastep.com##img[src*="728x200"]
-mangastep.com##a[href]:has(img):not([href^="/"]):not([href^="#"]):not([href*="mangastep.com"])
-
-! --- หัวข้อ + ย่อหน้า SEO บนสุด ---
 mangastep.com##h1:has-text(อ่านมังงะแปลไทย ทันสมัย)
 mangastep.com##p:has-text(เว็บอ่านมังงะยอดนิยมทั้งจาก)
 
-! --- สไลด์โชวปกมังงะ ---
+! FIXME: ข้อความไทยเดิมสระ/วรรณยุกต์หาย ("เวบอานมงงะใหม่", "ทีเว็บ")
+!        แก้ให้ถูกต้องแล้ว แต่ควรก๊อปข้อความจริงจากหน้าเว็บมาเทียบอีกครั้ง
+dark-manga.com##h1:has-text(เว็บอ่านมังงะใหม่)
+dark-manga.com##p:has-text(ที่เว็บ)
+
+! หมายเหตุ: h1 ของ tanuki คือชื่อตอนจริง อย่าซ่อน
+tanuki-manga.net,tanuki-manga.com##a[href*="theclarendonarms.com"]
+
+! --- สไลด์โชว์ปกมังงะ (mangastep) ---
 mangastep.com##div[id*="slider"]
 mangastep.com##div[class*="slider"]
 mangastep.com##.ls-wp-container
 
-! --- breadcrumb + ย่อหน้าโปรยใต้หัวเรื่อง ---
-mangastep.com##[itemtype*="BreadcrumbList"]:upward(1)
-mangastep.com##div[class*="breadcrumb"]
-mangastep.com##p:has-text(Dont forget to read)
-
-! --- ลิงก์เว็บผู้ใหญ่ทายเว็บ ---
+! --- ลิงก์เว็บผู้ใหญ่ / เว็บหนัง (mangastep) ---
 mangastep.com##a[href*="neutypechic.com"]
 mangastep.com##a[href*="feetluv.com"]
 mangastep.com##a[href*="movie2freehd.com"]
 
 
+! ==========================================================
+! MANGA — ธีมกลุ่ม kln / dessert-frame / wbnn
+! ==========================================================
 
-! ===== Dark-Manga =====
+! --- กล่องโฆษณาที่ตั้ง id ขึ้นต้นด้วย ads ---
+! ครอบคลุม #ads_02 #ads_03 #ads_04 #ads_05 #ads_fix_footer #ads-*
+moodtoon.net,moon-toon.com,mangaza.net,manga168.net,manga1688.com,popsmanga.com,up-manga.com,god-manga.com,go-manga.com,xn--72cas2cj6a4hf4b5a8oc.com##[id^="ads"]
 
-! --- โฆษณา ---
-dark-manga.com##a[href]:has(img):not([href^="/"]):not([href^="#"]):not([href*="dark-manga.com"]):not([href*="facebook.com"]):not([href*="discord.com"]):not([href*="x.com"])
+! --- แถบโฆษณาลอยล่าง ---
+! ครอบคลุม #sticky-bottom / 2 / 3 / 4
+up-manga.com,go-manga.com##[id^="sticky-bottom"]
 
-dark-manga.com##img[src*="728x200"]
-dark-manga.com##img[src*="728x400"]
-dark-manga.com##img[src*="728x90"]
-dark-manga.com##img[src*="730x"]
-dark-manga.com##img[src*="140x250"]
+! --- กล่องโฆษณาชื่อตามเว็บ ---
+! ครอบคลุม center_upmanga, center_upmangaza, center_upmangasolo1-5
+up-manga.com##div[class*="center_upmanga"]
+! ครอบคลุม center_gomanga, center_gomanga3, center_gomangasolo3
+go-manga.com##div[class*="center_gomanga"]
 
-dark-manga.com##a:has(img[src$=".gif"])
-dark-manga.com##img[src$=".gif"]
+! --- moodtoon / moon-toon / mangaza ---
+moodtoon.net,moon-toon.com,mangaza.net##.mt-ad
 
-dark-manga.com##img[src*="close.png"]:upward(1)
+! --- manga168 ---
+manga168.net##div.dessert-frame > center
+! กฎเดิมผูกกับ #post-661449 / #post-666356 / #post-670619 ใช้ได้แค่ 3 ตอน
+manga168.net##div.entry-content-single > div.kln
 
-dark-manga.com##a[href*="ibit.ly"]
-dark-manga.com##a[href*="//t.ly/"]
-dark-manga.com##a[href*="rebrand.ly"]
-dark-manga.com##a[href*="cutt.ly"]
-dark-manga.com##a[href*="lin.ee"]
-dark-manga.com##a[href*="openExternalBrowser="]
+! --- manga1688 ---
+! FIXME: ##center ซ่อน <center> ทุกตัวในเว็บ กว้างมาก ถ้าเนื้อหาหายให้ลบบรรทัดนี้
+manga1688.com##center
+manga1688.com##div.dessert-frame
+manga1688.com##div.kln:nth-of-type(3)
+manga1688.com##[class*="wbnn"]
+manga1688.com##div.slider-ads
+manga1688.com##[src*=".gif"]
 
-! --- หวขอ SEO บนสด ---
-dark-manga.com##h1:has-text(เวบอานมงงะใหม่)
+! --- popsmanga ---
+popsmanga.com##.dessert-frame > center
+popsmanga.com###wbnn
+popsmanga.com##.kln
 
-! --- breadcrumb + ยอหนาโปรย ---
-dark-manga.com##[itemtype*="BreadcrumbList"]:upward(1)
-dark-manga.com##div[class*="breadcrumb"]
-dark-manga.com##.ts-breadcrumb
-dark-manga.com##p:has-text(ทีเว็บ)
+! --- god-manga ---
+! FIXME: กฎเดิมใช้ header.header:nth-child(47) / (50) เปราะมาก
+!        เปลี่ยนมาจับ selector ตามชื่อคลาสแทน
+god-manga.com###wbnn
+god-manga.com##div.dessert-frame > center
 
-! --- network (ตองเปิด Aggressive) ---
-||dark-manga.com/wp-content/uploads/*.gif$image
+! --- xenon-manga ---
+xenon-manga.com###content > div.wrapper > center
 
-! ===== Go-Manga v3 =====
-
-! --- โฆษณา ---
-go-manga.com##a[href]:has(img):not([href^="/"]):not([href^="#"]):not([href*="go-manga.com"]):not([href*="facebook.com"]):not([href*="discord.com"])
-
-go-manga.com##img[src*="728x200"]
-go-manga.com##img[src*="728x180"]
-go-manga.com##img[src*="728x400"]
-go-manga.com##img[src*="728x90"]
-go-manga.com##img[src*="728-400"]
-go-manga.com##img[src*="730x"]
-go-manga.com##img[src*="140x250"]
-
-go-manga.com##a:has(img[src$=".gif"])
-go-manga.com##img[src$=".gif"]
-
-go-manga.com##img[src*="close.png"]:upward(1)
-
-go-manga.com##a[href*="cutt.ly"]
-go-manga.com##a[href*="ibit.ly"]
-go-manga.com##a[href*="lin.ee"]
-go-manga.com##a[href*="//t.ly/"]
-go-manga.com##a[href*="tinyurl.com"]
-go-manga.com##a[href*="rebrand.ly"]
-go-manga.com##a[href*="//bit.ly/"]
-go-manga.com##a[href*="openExternalBrowser="]
-
-! --- ส่วนเกินบนหน้าอ่าน ---
-go-manga.com##h1:has-text(อ่านมังงะอ่านการ์ตูนออนไลน์)
-go-manga.com##[itemtype*="BreadcrumbList"]:upward(1)
-go-manga.com##div[class*="breadcrumb"]
-go-manga.com##.ts-breadcrumb
-go-manga.com##p:has-text(อัพเดทใหม่ล่าสุดที่)
-
-! --- network (ต้องเปิด Aggressive) ---
-||go-manga.com/wp-content/uploads/*.gif$image
+! --- อื่น ๆ ---
+xn--72cas2cj6a4hf4b5a8oc.com##div.th-ban
+xn--l3c0azab5a2gta.com##.ads
+oremanga.net##.header-ads-section
+up-manga.com##div.center_upmanga > *
 
 
-! ===== Mangastep =====
+! ##########################################################
+! MOVIE
+! ##########################################################
 
-! --- โฆษณา (network) ---
-||image.cdend.com^
-mangastep.com##a[href*="ibit.ly"]
+! 2024-05-05 https://www.123-hd.com
+123-hd.com###banner_top
+123-hd.com##div.clearfix.htmlwrap:nth-of-type(16)
 
-! --- โฆษณา (first-party ที่เหลือ) ---
-mangastep.com##a:has(img[src*="728x200"])
-mangastep.com##img[src*="728x200"]
-mangastep.com##a[href]:has(img):not([href^="/"]):not([href^="#"]):not([href*="mangastep.com"])
+! Apr 11, 2025 https://www.kubhd.com
+||kubhd.com/wp-content/uploads/202*.gif$image
+kubhd.com##.rounded.lg\:p-6.py-4.w-full.mb-4.content_bg
+kubhd.com##.px-2.pt-1.lg\:w-3\/4.md\:w-2\/3.w-full > div > .mb-4.border-gray-800.border.bg-gray-900.rounded-xl.w-full
+kubhd.com##.px-2.pt-1.lg\:w-3\/4.md\:w-2\/3.w-full > div > .border-gray-800.border.bg-gray-900.rounded-xl.w-full
+kubhd.com##.border-gray-700.rounded.border.mb-4.rounded-lg.bg-gray-800.mx-auto.my-4.container
+kubhd.com##.overflow-x-auto.max-h-96.mb-4.rounded-xl.border-gray-800.border.bg-gray-900.format-blue.lg\:format-lg.sm\:format-base.format-sm.format.w-full.mx-auto.post-content
+kubhd.com###wpdevar_comment_1
 
-! --- หัวข้อ + ย่อหน้า SEO บนสุด ---
-mangastep.com##h1:has-text(อ่านมังงะแปลไทย ทันสมัย)
-mangastep.com##p:has-text(เว็บอ่านมังงะยอดนิยมทั้งจาก)
+! Apr 11, 2025 https://www.037hdmovie.com
+037hdmovie.com##[id^="ads-"]
 
-! --- สไลด์โชวปกมังงะ ---
-mangastep.com##div[id*="slider"]
-mangastep.com##div[class*="slider"]
-mangastep.com##.ls-wp-container
+! --- โฆษณาแบบวิดีโอ ---
+||googles.video/c2FnYW1lc2FnYW1lc2FnYW1lc2FnYW1el/*.+(mp4|webm|mov|avi|flv|m4v|mkv)$media
+||rsc.cdn77.org/videos/ads-$media
+||videos.cdnstorage-1.top/ufafat-v.mp4$media
+||videos.cdnstorage-1.top/huayhit88.mp4$media
+||videos.cdnstorage-1.top/sa168.mp4$media
 
-! --- breadcrumb + ย่อหน้าโปรยใต้หัวเรื่อง ---
-mangastep.com##[itemtype*="BreadcrumbList"]:upward(1)
-mangastep.com##div[class*="breadcrumb"]
-mangastep.com##p:has-text(Dont forget to read)
+! --- สคริปต์โฆษณา / tracker ---
+||cloudnestra.com/asdf.js$script
+||cloudnestra.com^$third-party
+||cloudnestra.com/rcp/$subdocument
+||s10.histats.com^$script
+||histats.com^$third-party
+||static.cloudflareinsights.com/beacon.min.js$script
+||unpkg.com/disable-devtool@*$script
 
-! --- ลิงก์เว็บผู้ใหญ่ทายเว็บ ---
-mangastep.com##a[href*="neutypechic.com"]
-mangastep.com##a[href*="feetluv.com"]
-mangastep.com##a[href*="movie2freehd.com"]
+! --- กล่องโฆษณาลอยทับ (generic) ---
+! FIXME: กฎเดิมเขียนเป็น "## #AdWidgetContainer" (มีเว้นวรรค) = selector ไม่ถูกต้อง
+!        uBO ทิ้งทั้ง 5 บรรทัด แปลว่าไม่เคยทำงานเลย แก้รูปแบบแล้ว
+!        แต่ยังเป็น generic ใช้ทุกเว็บ ถ้าเจอปัญหาให้ใส่โดเมนนำหน้า
+###AdWidgetContainer
+###ad720
+###onexbet
+###histats_counter
+! FIXME: #loading_overlay เป็นชื่อทั่วไป อาจโดนเว็บอื่นด้วย
+###loading_overlay
+
+! REMOVED: *$popup,domain=put-the-site-domain-here
+!          เป็น placeholder ที่ยังไม่ได้ใส่โดเมนจริง
 
 
+! ##########################################################
+! MOVIE + SERIES — ธีมร่วม (037hd / serieday / seriedays)
+! ##########################################################
 
-! ===== Dark-Manga =====
+037hd.tv,serieday-hd.com,seriedays.com##.ad
+037hd.tv,serieday-hd.com,seriedays.com##.col-in1
+037hd.tv,serieday-hd.com,seriedays.com##.col-in3
+037hd.tv,serieday-hd.com,seriedays.com##.col-in4
+037hd.tv,serieday-hd.com,seriedays.com##.content-col1
+037hd.tv,serieday-hd.com,seriedays.com##div.movietext:nth-of-type(6)
 
-! --- โฆษณา ---
-dark-manga.com##a[href]:has(img):not([href^="/"]):not([href^="#"]):not([href*="dark-manga.com"]):not([href*="facebook.com"]):not([href*="discord.com"]):not([href*="x.com"])
+! --- เฉพาะ 037hd ---
+037hd.tv##.col-in2
+037hd.tv##.col-in4 > .adt
+037hd.tv##.contentmovie > .adt
+037hd.tv##.fb_iframe_widget_fluid_desktop.fb_iframe_widget.fb-comments
+037hd.tv###welcome
 
-dark-manga.com##img[src*="728x200"]
-dark-manga.com##img[src*="728x400"]
-dark-manga.com##img[src*="728x90"]
-dark-manga.com##img[src*="730x"]
-dark-manga.com##img[src*="140x250"]
+! --- เฉพาะ serieday / seriedays ---
+serieday-hd.com,seriedays.com##.content-col2 > .adcen
+serieday-hd.com,seriedays.com##.right-menu > .adhl
+serieday-hd.com,seriedays.com##.adlf > .adhl
+serieday-hd.com,seriedays.com##.adl
+serieday-hd.com,seriedays.com##.mcommanr
+serieday-hd.com,seriedays.com##.content-site
+serieday-hd.com,seriedays.com##div.movie:nth-of-type(7)
 
-dark-manga.com##a:has(img[src$=".gif"])
-dark-manga.com##img[src$=".gif"]
 
-dark-manga.com##img[src*="close.png"]:upward(1)
+! ##########################################################
+! GOOGLE & YOUTUBE
+! ##########################################################
 
-dark-manga.com##a[href*="ibit.ly"]
-dark-manga.com##a[href*="//t.ly/"]
-dark-manga.com##a[href*="rebrand.ly"]
-dark-manga.com##a[href*="cutt.ly"]
-dark-manga.com##a[href*="lin.ee"]
-dark-manga.com##a[href*="openExternalBrowser="]
+! --- annotation / card / endscreen ---
+||youtube.com/annotations_
+/endscreen.js$script,domain=www.youtube.com
+youtube.com##.ytp-ce-element
+youtube.com##.ytp-ce-element-show
+youtube.com##.ytp-cards-teaser-text
+youtube.com##.ytp-cards-button-icon-default
+youtube.com##.ytp-scroll-min.ytp-pause-overlay
+youtube.com##.branding-img-container
+youtube.com##[class*="annotation-type-text"]
+youtube.com###offer-module > .ytd-watch.style-scope
 
-! --- หวขอ SEO บนสด ---
-dark-manga.com##h1:has-text(เวบอานมงงะใหม่)
+! --- ซ่อน AI summary ในแชทสด ---
+youtube.com###live-chat-banner > .yt-live-chat-banner-manager.style-scope:has-text(/Chat summary/i)
 
-! --- breadcrumb + ยอหนาโปรย ---
-dark-manga.com##[itemtype*="BreadcrumbList"]:upward(1)
-dark-manga.com##div[class*="breadcrumb"]
-dark-manga.com##.ts-breadcrumb
-dark-manga.com##p:has-text(ทีเว็บ)
+! --- ซ่อนตัวเลือกคุณภาพ Enhanced bitrate ---
+youtube.com##.ytp-quality-menu.ytp-panel > .ytp-panel-menu > div.ytp-menuitem:has-text(/Enhanced bitrate/i)
 
-! --- network (ตองเปิด Aggressive) ---
-||dark-manga.com/wp-content/uploads/*.gif$image
+! --- ซ่อน Playables จากหน้าแรก ---
+youtube.com##ytd-rich-section-renderer:has-text(/Playables/i)
+
+! --- ซ่อนวิดีโอเฉพาะสมาชิก ---
+youtube.com##ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--commerce)
+youtube.com##ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(5)
+
+! --- ซ่อน footer ใน sidebar ---
+youtube.com###footer
+
+! CONFLICT: 2 บรรทัดล่างทับกับกฎ Playables/Chat summary ด้านบน
+!           #chat ซ่อนแชทสดทั้งหมด และ ytd-rich-section-renderer แบบไม่มีเงื่อนไข
+!           จะซ่อนทุก shelf ในหน้าแรก ไม่ใช่แค่ Shorts
+!           เปิดใช้เฉพาะถ้าต้องการจริง ๆ
+! youtube.com###chat
+! youtube.com##ytd-rich-section-renderer.ytd-rich-grid-renderer.style-scope
+
+! --- mobile ---
+m.youtube.com##ytm-item-section-renderer.scwnr-content:nth-of-type(1) > lazy-list > .item
+
+! --- sponsored ทั่วไป ---
+~google.com##div.result[id*="sponsored"]
