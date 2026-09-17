@@ -282,3 +282,30 @@ m.youtube.com##ytm-item-section-renderer.scwnr-content:nth-of-type(1) > lazy-lis
 
 ! --- sponsored ทั่วไป ---
 ~google.com##div.result[id*="sponsored"]
+
+! ==========================================================
+! MANGA — manga-lc (ธีม Madara)
+! ==========================================================
+
+! --- network: GIF แบนเนอร์พนัน ---
+/wp-content/uploads/*.gif$image,domain=manga-lc.net
+
+! --- ช่องโฆษณามาตรฐานของธีม Madara ---
+! ครอบคลุม .body-top-ads / .body-bottom-ads / .header-ads / .c-ads
+manga-lc.net##div[class*="-ads"]
+manga-lc.net##.c-ads
+
+! --- ลิงก์ภายนอกที่ห่อรูป (แบนเนอร์) ---
+manga-lc.net##a[href]:has(img):not([href^="/"]):not([href^="#"]):not([href*="manga-lc.net"]):not([href*="facebook.com"]):not([href*="discord.com"])
+
+! --- รูป GIF ที่หลุดจาก network rule ---
+manga-lc.net##a:has(img[src$=".gif"])
+manga-lc.net##img[src$=".gif"]
+
+! --- ลิงก์ย่อ / LINE OA ---
+manga-lc.net##a[href*="lin.ee"]
+manga-lc.net##a[href*="bit.ly"]
+manga-lc.net##a[href*="cutt.ly"]
+
+! OPTIONAL: ลิงก์ข้อความ "อ่านการ์ตูนวายฟรี! Kurotoon.com คลิ๊ก" เหนือรูปตอนแรก
+! manga-lc.net##a[href*="kurotoon"]
