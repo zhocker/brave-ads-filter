@@ -1,8 +1,8 @@
 ! Title: Thai Content Filters
 ! Description: Filters for Thai movie, manga, anime, and series websites.
 ! Homepage: https://github.com/peerasak/ublock-filter-th
-! Version: 6
-! Last modified: 2026-09-07
+! Version: 7
+! Last modified: 2026-10-03
 ! Expires: 1 day
 
 
@@ -38,41 +38,41 @@ animeruka.com,anime-ruka.com###box-side-l
 ||image.cdend.com^
 ||theclarendonarms.com^
 /*.gif$image,domain=manga1688.com|up-manga.com|moodtoon.net|moon-toon.com|popsmanga.com
-/wp-content/uploads/*.gif$image,domain=go-manga.com|dark-manga.com|tanuki-manga.net|tanuki-manga.com
+/wp-content/uploads/*.gif$image,domain=go-manga.com|dark-manga.com|tanuki-manga.net|tanuki-manga.com|black-manga.com
 
 
 ! ==========================================================
 ! MANGA — ธีม Mangareader (TS theme)
-! go-manga / mangastep / dark-manga / tanuki-manga
+! go-manga / mangastep / dark-manga / tanuki-manga / black-manga
 ! ==========================================================
 
 ! --- ลิงก์ภายนอกที่ห่อรูป (โฆษณาแบนเนอร์) ---
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href]:has(img):not([href^="/"]):not([href^="#"]):not([href*="go-manga.com"]):not([href*="mangastep.com"]):not([href*="dark-manga.com"]):not([href*="tanuki-manga"]):not([href*="facebook.com"]):not([href*="discord.com"]):not([href*="x.com"])
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##a[href]:has(img):not([href^="/"]):not([href^="#"]):not([href*="go-manga.com"]):not([href*="mangastep.com"]):not([href*="dark-manga.com"]):not([href*="tanuki-manga"]):not([href*="black-manga.com"]):not([href*="facebook.com"]):not([href*="discord.com"]):not([href*="x.com"])
 
 ! --- รูปแบนเนอร์ตามขนาดมาตรฐาน ---
 ! 728x  ครอบคลุม 728x90 / 728x180 / 728x200 / 728x400
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##img[src*="728x"]
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##img[src*="728-400"]
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##img[src*="730x"]
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##img[src*="140x250"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##img[src*="728x"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##img[src*="728-400"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##img[src*="730x"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##img[src*="140x250"]
 
 ! --- ลิงก์ย่อ / redirect ---
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="cutt.ly"]
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="ibit.ly"]
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="rebrand.ly"]
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="tinyurl.com"]
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="lin.ee"]
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="//t.ly/"]
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="//bit.ly/"]
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a[href*="openExternalBrowser="]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##a[href*="cutt.ly"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##a[href*="ibit.ly"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##a[href*="rebrand.ly"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##a[href*="tinyurl.com"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##a[href*="lin.ee"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##a[href*="//t.ly/"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##a[href*="//bit.ly/"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##a[href*="openExternalBrowser="]
 
 ! --- breadcrumb ---
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##[itemtype*="BreadcrumbList"]:upward(1)
-go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##div[class*="breadcrumb"]
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##[itemtype*="BreadcrumbList"]:upward(1)
+go-manga.com,mangastep.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##div[class*="breadcrumb"]
 
 ! --- GIF โฆษณา + ป็อปอัพ ---
-go-manga.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##a:has(img[src$=".gif"])
-go-manga.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com##img[src$=".gif"]
+go-manga.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##a:has(img[src$=".gif"])
+go-manga.com,dark-manga.com,tanuki-manga.net,tanuki-manga.com,black-manga.com##img[src$=".gif"]
 go-manga.com,dark-manga.com##img[src*="close.png"]:upward(1)
 
 ! --- ย่อหน้า SEO ของธีม ---
@@ -101,6 +101,13 @@ mangastep.com##.ls-wp-container
 mangastep.com##a[href*="neutypechic.com"]
 mangastep.com##a[href*="feetluv.com"]
 mangastep.com##a[href*="movie2freehd.com"]
+
+! --- black-manga ---
+! ช่องโฆษณาของธีม Mangareader (div.kln / .blox.kln) แถบแบนเนอร์พนันใต้ header
+black-manga.com##.kln
+black-manga.com##[id^="ads"]
+black-manga.com##[class*="sticky-bottom"]
+black-manga.com##[id^="sticky-bottom"]
 
 
 ! ==========================================================
