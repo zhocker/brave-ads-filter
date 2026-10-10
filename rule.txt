@@ -1,8 +1,8 @@
 ! Title: Thai Content Filters
 ! Description: Filters for Thai movie, manga, anime, and series websites.
 ! Homepage: https://github.com/peerasak/ublock-filter-th
-! Version: 7
-! Last modified: 2026-10-03
+! Version: 8
+! Last modified: 2026-10-10
 ! Expires: 1 day
 
 
@@ -185,6 +185,20 @@ kubhd.com###wpdevar_comment_1
 
 ! Apr 11, 2025 https://www.037hdmovie.com
 037hdmovie.com##[id^="ads-"]
+
+! 2026-10-10 https://www.24-hda.com
+! ยังไม่ได้เทียบกับ HTML จริง ใช้แนวเดียวกับเว็บหนังอื่นในไฟล์
+/wp-content/uploads/*.gif$image,domain=24-hda.com
+*$popup,third-party,domain=24-hda.com
+24-hda.com##a[href]:has(img):not([href^="/"]):not([href^="#"]):not([href*="24-hda.com"])
+24-hda.com##a:has(img[src$=".gif"])
+24-hda.com##img[src$=".gif"]
+24-hda.com###banner_top
+24-hda.com##[id^="ads"]
+24-hda.com##[id^="sticky-bottom"]
+24-hda.com##a[href*="lin.ee"]
+24-hda.com##a[href*="bit.ly"]
+24-hda.com##a[href*="cutt.ly"]
 
 ! --- โฆษณาแบบวิดีโอ ---
 ||googles.video/c2FnYW1lc2FnYW1lc2FnYW1lc2FnYW1el/*.+(mp4|webm|mov|avi|flv|m4v|mkv)$media
