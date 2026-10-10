@@ -1,7 +1,7 @@
 ! Title: Thai Content Filters
 ! Description: Filters for Thai movie, manga, anime, and series websites.
 ! Homepage: https://github.com/peerasak/ublock-filter-th
-! Version: 8
+! Version: 9
 ! Last modified: 2026-10-10
 ! Expires: 1 day
 
@@ -199,6 +199,24 @@ kubhd.com###wpdevar_comment_1
 24-hda.com##a[href*="lin.ee"]
 24-hda.com##a[href*="bit.ly"]
 24-hda.com##a[href*="cutt.ly"]
+! 2026-10-10 แบนเนอร์พนัน 3 คอลัมน์ (ซ้าย/กลาง/ขวา) ใต้เมนู ยังหลุดกฎชุดแรก
+! แบนเนอร์น่าจะเป็น png/webp และลิงก์ผ่าน redirect ในโดเมน จึงจับจากลักษณะลิงก์/วิดเจ็ตแทน
+24-hda.com##a[target="_blank"]:has(img)
+24-hda.com##a[rel*="nofollow"]:has(img)
+24-hda.com##a[rel*="sponsored"]:has(img)
+24-hda.com##.htmlwrap:has(img)
+24-hda.com##.widget_media_image
+24-hda.com##.widget_custom_html:has(img)
+24-hda.com##.widget_text:has(img)
+24-hda.com##[id^="banner"]
+24-hda.com##[class*="banner"]:has(img)
+24-hda.com##img[src*="banner" i]
+24-hda.com##img[src*="ufa" i]
+24-hda.com##img[src*="slot" i]
+24-hda.com##img[src*="casino" i]
+24-hda.com##img[src*="728x"]
+24-hda.com##img[src*="300x"]
+24-hda.com##img[src*="160x"]
 
 ! --- โฆษณาแบบวิดีโอ ---
 ||googles.video/c2FnYW1lc2FnYW1lc2FnYW1lc2FnYW1el/*.+(mp4|webm|mov|avi|flv|m4v|mkv)$media
